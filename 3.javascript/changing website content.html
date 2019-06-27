@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Changing website content</title>
+    </head>
+    <body>
+        <p id="text">Javascript is </p>
+        <button id="myButton">Append Text</button>
+        <p id="emptyPara"></p>
+        <button id="createPara">Create Text</button>
+        <script type="text/javascript">
+            document.getElementById("myButton").onclick=function() {
+                alert("Text Appended!");
+                document.getElementById("text").innerHTML = document.getElementById("text").innerHTML+"awesome";
+                document.getElementById("text").innerHTML = "I think " + document.getElementById("text").innerHTML;
+            };
+            document.getElementById("createPara").onclick = function() {
+                alert("Text Created!");
+                document.getElementById("emptyPara").innerHTML = "Text Created";
+            }
+        </script>
+    </body>
+</html>

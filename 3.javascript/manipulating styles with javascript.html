@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>Changing website content</title>
+    </head>
+    <body>
+        <p id="text">Style will change</p>
+        <button id="styleText">Style Text</button>
+        <button id="erase">Erase Paragraph</button>
+        <script type="text/javascript">
+            document.getElementById("styleText").onclick = function() {
+                document.getElementById("text").style.color = "red";
+                document.getElementById("text").style.fontSize = "50px";
+            };
+            document.getElementById("erase").onclick = function() {
+                document.getElementById("text").style.display = "none";
+            };
+        </script>
+    </body>
+</html>

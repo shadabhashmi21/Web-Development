@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Detecting a Click</title>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <style type="text/css">
+            #circle {
+                height: 150px;
+                width: 150px;
+                border-radius: 50%;
+                background-color: green;
+                margin: 10px;
+            }
+            .square {
+                height: 150px;
+                width: 150px;
+                background-color: red;
+                margin: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="circle"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <script type="text/javascript">
+            $("#circle").click(function() {
+                alert("Circle was clicked")
+            });
+            $(".square").click(function() {
+                alert("Square was clicked")
+            });
+        </script>
+    </body>
+</html>

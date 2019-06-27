@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>Responding to Click</title>
+    </head>
+    <body>
+        <p id="text">Hello</p>
+        <button id="myButton">Change Text</button>
+        <script type="text/javascript">
+            document.getElementById("myButton").onclick=function() {
+                alert("Button Clicked!");
+                document.getElementById("text").innerHTML="Text Changed";
+            }
+        </script>
+    </body>
+</html>
