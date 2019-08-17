@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Resizables</title>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="jquery-ui/jquery-ui.js"></script>
+        <link href="jquery-ui/jquery-ui.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="resizable" style="height: 100px;width: 100px;border: 1px solid grey;margin: 10px"></div>
+        <div id="resizable1" style="height: 100px;width: 100px;border: 1px solid grey;margin: 10px"></div>
+        <div id="resizable2" style="height: 100px;width: 100px;border: 1px solid grey;margin: 10px"></div>
+        <script type="text/javascript">
+            $("#resizable").resizable();
+            $("#resizable1").resizable( {
+                grid:50,
+                alsoResize: "#resizable2",
+                resize: function(event ,ui) {
+                if ($("#resizable1").width()>300) {
+                    alert("big enough")
+                }
+            }
+            });
+            $("#resizable2").resizable();
+        </script>
+    </body>
+</html>

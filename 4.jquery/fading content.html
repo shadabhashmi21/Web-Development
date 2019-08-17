@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>Fading Content</title>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <style type="text/css">
+            #circle {
+                height: 150px;
+                width: 150px;
+                border-radius: 50%;
+                background-color: green;
+                margin: 10px;
+            }
+            .square {
+                height: 150px;
+                width: 150px;
+                background-color: red;
+                margin: 10px;
+            }
+            #hidText {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="circle"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <p>This paragraph will be faded</p>
+        <button id="fade">Fade out text</button>
+        <p id="hidText">This text will be hidden initially</p>
+        <button id="fadeIn">Fade in text</button>
+        <p id="text">Toggle Text</p>
+        <button id="toggle">Toggle text</button>
+        <script type="text/javascript">
+            $("#circle").click(function() {
+                $(this).fadeOut();
+            });
+            $(".square").click(function() {
+                $(this).fadeOut("slow", function() {
+                    alert("fadeOut has finished");
+                });
+            });
+            $("#fade").click(function() {
+                $("p").fadeOut();
+            });
+            $("#fadeIn").click(function() {
+                $("#hidText").fadeIn();
+            });
+            $("#toggle").click(function() {
+                if ($("#text").css("display") == "none") {
+                    $("#text").fadeIn();
+                } else {
+                    $("#text").fadeOut();
+                }
+            });
+        </script>
+    </body>
+</html>

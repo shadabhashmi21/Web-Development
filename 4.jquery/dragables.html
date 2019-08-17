@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Dragables</title>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="jquery-ui/jquery-ui.js"></script>
+        <link href="jquery-ui/jquery-ui.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="dragx">Drag Me! Horizontally</div>
+        <div id="dragy">Drag Me! Vertically</div>
+        <div id="con" style="width: 400px;height: 400px;background-color: palevioletred">
+            <div id="cont" style="width: 100px;height: 100px;background-color: mediumaquamarine;margin-left: 20px;top: 20px">
+                <span>I cannot come out from inner box</span>
+            </div>
+            <span>I cannot come out from outer box</span>
+        </div>
+        <script type="text/javascript">
+            $("#dragx").draggable({
+                axis:"x"
+            });
+            $("#dragy").draggable({
+                axis:"y"
+            });
+            $("span").draggable( {
+                containment: "parent"
+            });
+        </script>
+    </body>
+</html>

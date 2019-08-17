@@ -1,0 +1,109 @@
+<html>
+    <head>
+        <title>Form Validation</title>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <style type="text/css">
+            body {
+                font-family: cursive, sans-serif;
+                font-size: 130%;
+            }
+            input {
+                padding: 5px 5px 12px 5px;
+                font-size: 20px;
+                border-radius: 50px;
+                border: 1px solid grey;
+                width: 320px;
+            }
+            label {
+                position: relative;
+                top: 10px;
+                width: 200px;
+                float: left;
+            }
+            #wrapper {
+                width: 600px;
+                margin: 0 auto;
+            }
+            .form-element {
+                margin: 10px;
+            }
+            #submitButton {
+                width: 150px;
+                margin-left: 200px;
+            }
+            #errorMessage {
+                color: red;
+                font-size: 110%;
+            }
+            #successMessage {
+                color: green;
+                font-size: 110%;
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="errorMessage"></div>
+            <div id="successMessage">Congrats!</div>
+            <div class="form-element">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" placeholder="eg. yourname@gmail.com">
+            </div>
+            <div class="form-element">
+                <label for="phone">Telephone</label>
+                <input type="text" name="phone" id="phone" placeholder="eg. 0123456789">
+            </div>
+            <div class="form-element">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+            </div>
+            <div class="form-element">
+                <label for="password">Confirm Password</label>
+                <input type="password" name="password" id="passwordConfirm">
+            </div>
+            <div class="form-element">
+                <input type="submit" id="submitButton" value="Sign up">
+            </div>
+        </div>
+        <script type="text/javascript">
+            function isEmail(email) {
+              var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+              return regex.test(email);
+            };
+            $("#submitButton").click(function() {
+                var errorMessage = "";
+                var empFld = "";
+                if($("#email").val() == "") {
+                    empFld += "<br>Email";
+                }
+                if($("#phone").val() == "") {
+                    empFld += "<br>Telephone";
+                }
+                if($("#password").val() == "") {
+                    empFld += "<br>Password";
+                }
+                if($("#passwordConfirm").val() == "") {
+                    empFld += "<br>Confirm Password";
+                }
+                if (isEmail($("#email").val()) == false) {
+                    errorMessage += "<p>Your email address is not valid</p>";
+                }
+                if (empFld != "") {
+                    errorMessage += "<p>The following fields are missing:" + empFld;                }
+                if ($.isNumeric($("#phone").val()) == false) {
+                    errorMessage += "<p>Your phone number is not valid</p>";
+                }
+                if ($("#password").val() != $("#passwordConfirm").val()) {
+                    errorMessage += "<p>Your passwords dont't match</p>";
+                }
+                if (errorMessage != "") {
+                    $("#errorMessage").html(errorMessage);
+                } else {
+                    $("#successMessage").show();
+                    $("#errorMessage").hide();
+                }
+            });
+        </script>
+    </body>
+</html>
